@@ -11,16 +11,8 @@ function draw() {
   p.display();
   p.move();
 
-  if (keyIsPressed === " ") {
-    p.j();
-  }
+  
 }
-
-// function keyPressed() {
-//   if (key === " ") {
-//     p.j();
-//   }
-// }
 
 class Player {
   constructor(x, y) {
@@ -41,17 +33,15 @@ class Player {
     if (keyIsDown(RIGHT_ARROW)) {
       this.x += this.dx;
     }
+
+    if (keyIsDown(UP_ARROW)) {
+      this.y -= this.dy;
+    }
+    else if (!keyIsDown(UP_ARROW) && y > height/2) {
+      this.y += this.dy;
+    }
     
   }
-
-  j() {
-    this.y -= this.dy;
-
-    if (this.y > height/2 - 10) {
-      this.dy *= -1;
-    }
-  }
-
 
 }
 
